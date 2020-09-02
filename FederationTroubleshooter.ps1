@@ -5,7 +5,7 @@
     Email: jojerd@microsoft.com
 	Requires: Administrative Priveleges
 	Version History:
-    1.0 Initial development.
+    1.02 Initial development.
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
 	BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -50,7 +50,7 @@ function ExchangeOnline {
     Clear-Host
     # Test Federation Trust to ensure everything is configured correctly and dump results to log.
     Write-Host " "
-    $User = Read-Host -Prompt "Enter an Email address to test Federation Trust with, Example User@YourDomain.com" -ForegroundColor Green
+    $User = Read-Host -Prompt "Enter an Email address to test Federation Trust with, Example User@YourDomain.com"
     $FedTest = Test-FederationTrust -UserIdentity $User | format-List
     $FedTest | Out-File .\Troubleshooterlogs\FederationTrustTestResults.log
     
