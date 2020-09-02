@@ -135,8 +135,9 @@ else {
 }
 
 # Check if PowerShell is being run from Exchange Online or Exchange OnPrem.
-$ExchangeSession = (Get-PSSnapin | Where-Object { $_.ComputerName -eq "Outlook.office365.com" } | Select-Object ComputerName)
-if ($ExchangeSession -eq "Outlook.office365.com") {
+$ExchangeSession = Get-PSSession | Select-Object ComputerName
+
+if ($ExchangeSession.ComputerName -like "outlook.office365.com") {
     ExchangeOnline
 }
 else {
