@@ -4,8 +4,11 @@
     Author: Josh Jerdon
     Email: jojerd@microsoft.com
 	Requires: Administrative Priveleges
-	Version History:
-    1.02 Initial development.
+    Version History:
+    1.03 Fixed Time compare dataonly switch for Exchange OnPrem.
+    1.02 Fixed typo.
+    1.01 Fixed Exchange Online discovery method.
+    1.0 Initial development.
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
 	BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -111,7 +114,7 @@ function ExchangeOnPrem {
         $FedTest | Out-File .\Troubleshooterlogs\FederationTrustTestResults.log
 
         # Compare Systems time with Windows Time server.
-        $TimeComparison = w32tm.exe /stripchart /computer:time.windows.com /samples:5 /data
+        $TimeComparison = w32tm.exe /stripchart /computer:time.windows.com /samples:5 /dataonly
         # Output time comparison details to log file.
         $TimeComparison | Out-File .\Troubleshooterlogs\TimeComparison.log
         
