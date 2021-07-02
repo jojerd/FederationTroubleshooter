@@ -55,7 +55,7 @@ function ExchangeOnline {
     # Test Federation Trust to ensure everything is configured correctly and dump results to log.
     Write-Host " "
     $User = Read-Host -Prompt "Enter an Email address to test Federation Trust with, Example User@YourDomain.com"
-    $FedTest = Test-FederationTrust -UserIdentity $User | format-List
+    $FedTest = Test-FederationTrust -UserIdentity $User -verbose
     $FedTest | Out-File .\Troubleshooterlogs\FederationTrustTestResults.log
     
 }
