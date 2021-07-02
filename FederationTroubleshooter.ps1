@@ -5,6 +5,7 @@
     Email: jojerd@microsoft.com
 	Requires: Administrative Priveleges
     Version History:
+    1.04 Added Added Verbose Logging to Federation Trust Test. Used to help identify connectivity issues.
     1.03 Fixed Time compare dataonly switch for Exchange OnPrem.
     1.02 Fixed typo.
     1.01 Fixed Exchange Online discovery method.
@@ -110,7 +111,7 @@ function ExchangeOnPrem {
         # Test Federation Trust to ensure everything is configured correctly and dump results to log.
         Write-Host " "
         $User = Read-Host -Prompt "Enter an Email address to test Federation Trust with, Example User@YourDomain.com"
-        $FedTest = Test-FederationTrust -UserIdentity $User | format-List
+        $FedTest = Test-FederationTrust -UserIdentity $User -verbose
         $FedTest | Out-File .\Troubleshooterlogs\FederationTrustTestResults.log
 
         # Compare Systems time with Windows Time server.
